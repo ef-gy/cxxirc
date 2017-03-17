@@ -2,16 +2,16 @@
  * \brief asio.hpp IRC Server
  *
  * \copyright
- * This file is part of the libefgy project, which is released as open source
+ * This file is part of the cxxhttp project, which is released as open source
  * under the terms of an MIT/X11-style licence, described in the COPYING file.
  *
- * \see Project Documentation: https://ef.gy/documentation/libefgy
- * \see Project Source Code: https://github.com/ef-gy/libefgy
- * \see Licence Terms: https://github.com/ef-gy/libefgy/blob/master/COPYING
+ * \see Project Documentation: https://ef.gy/documentation/cxxhttp
+ * \see Project Source Code: https://github.com/ef-gy/cxxhttp
+ * \see Licence Terms: https://github.com/ef-gy/cxxhttp/blob/master/COPYING
  */
 
-#if !defined(EF_GY_IRC_H)
-#define EF_GY_IRC_H
+#if !defined(CXXHTTP_IRC_H)
+#define CXXHTTP_IRC_H
 
 #include <set>
 #include <map>
@@ -22,9 +22,9 @@
 #include <algorithm>
 #include <functional>
 
-#include <ef.gy/server.h>
+#include <cxxhttp/server.h>
 
-namespace efgy {
+namespace cxxhttp {
 namespace net {
 namespace irc {
 static std::regex mask(const std::string &pattern) {

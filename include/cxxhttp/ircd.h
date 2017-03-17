@@ -1,20 +1,20 @@
 /**\file
  *
  * \copyright
- * This file is part of the libefgy project, which is released as open source
+ * This file is part of the cxxhttp project, which is released as open source
  * under the terms of an MIT/X11-style licence, described in the COPYING file.
  *
- * \see Project Documentation: https://ef.gy/documentation/libefgy
- * \see Project Source Code: https://github.com/ef-gy/libefgy
- * \see Licence Terms: https://github.com/ef-gy/libefgy/blob/master/COPYING
+ * \see Project Documentation: https://ef.gy/documentation/cxxhttp
+ * \see Project Source Code: https://github.com/ef-gy/cxxhttp
+ * \see Licence Terms: https://github.com/ef-gy/cxxhttp/blob/master/COPYING
  */
 
-#if !defined(EF_GY_IRCD_H)
-#define EF_GY_IRCD_H
+#if !defined(CXXHTTP_IRCD_H)
+#define CXXHTTP_IRCD_H
 
-#include <ef.gy/irc.h>
+#include <cxxhttp/irc.h>
 
-namespace efgy {
+namespace cxxhttp {
 namespace ircd {
 
 template <class sock>
@@ -30,11 +30,11 @@ static std::size_t setup(net::endpoint<sock> lookup,
   });
 }
 
-static cli::option socket("-{0,2}irc:unix:(.+)", [](std::smatch &m) -> bool {
+static efgy::cli::option socket("-{0,2}irc:unix:(.+)", [](std::smatch &m) -> bool {
   return setup(net::endpoint<asio::local::stream_protocol>(m[1])) > 0;
 }, "Listen for IRC connections on the given unix socket[1].");
 
-static cli::option tcp("-{0,2}irc:(.+):([0-9]+)", [](std::smatch &m) -> bool {
+static efgy::cli::option tcp("-{0,2}irc:(.+):([0-9]+)", [](std::smatch &m) -> bool {
   return setup(net::endpoint<asio::ip::tcp>(m[1], m[2])) > 0;
 }, "Listen for IRC connections on the given host[1] and port[2].");
 }
