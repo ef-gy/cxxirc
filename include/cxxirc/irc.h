@@ -2,16 +2,16 @@
  * \brief asio.hpp IRC Server
  *
  * \copyright
- * This file is part of the cxxhttp project, which is released as open source
+ * This file is part of the cxxirc project, which is released as open source
  * under the terms of an MIT/X11-style licence, described in the COPYING file.
  *
- * \see Project Documentation: https://ef.gy/documentation/cxxhttp
- * \see Project Source Code: https://github.com/ef-gy/cxxhttp
- * \see Licence Terms: https://github.com/ef-gy/cxxhttp/blob/master/COPYING
+ * \see Project Documentation: https://ef.gy/documentation/cxxirc
+ * \see Project Source Code: https://github.com/ef-gy/cxxirc
+ * \see Licence Terms: https://github.com/ef-gy/cxxirc/blob/master/COPYING
  */
 
-#if !defined(CXXHTTP_IRC_H)
-#define CXXHTTP_IRC_H
+#if !defined(CXXIRC_IRC_H)
+#define CXXIRC_IRC_H
 
 #include <set>
 #include <map>
@@ -24,7 +24,7 @@
 
 #include <cxxhttp/server.h>
 
-namespace cxxhttp {
+namespace cxxirc {
 namespace net {
 namespace irc {
 static std::regex mask(const std::string &pattern) {
@@ -707,7 +707,7 @@ protected:
 }
 
 template <typename base, typename requestProcessor = processor::server<base>>
-using server = net::server<base, requestProcessor, session>;
+using server = cxxhttp::net::server<base, requestProcessor, session>;
 
 template <typename base, typename requestProcessor> class session {
 protected:

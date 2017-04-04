@@ -29,9 +29,10 @@
 
 #define ASIO_DISABLE_THREADS
 #include <cxxhttp/httpd.h>
-#include <cxxhttp/ircd.h>
+#include <cxxirc/ircd.h>
 
 using namespace cxxhttp;
+using namespace cxxirc;
 
 /**\brief Hello World request handler
  *
@@ -42,7 +43,7 @@ using namespace cxxhttp;
  * \returns true (always, as we always reply).
  */
 template <class transport>
-static bool hello(typename net::http::server<transport>::session &session,
+static bool hello(typename cxxhttp::net::http::server<transport>::session &session,
                   std::smatch &) {
   session.reply(200, "Hello World!");
 
