@@ -29,6 +29,7 @@
 
 #define ASIO_DISABLE_THREADS
 #include <cxxhttp/httpd.h>
+#include <cxxhttp/httpd-quit.h>
 #include <cxxirc/ircd.h>
 
 using namespace cxxhttp;
@@ -53,14 +54,11 @@ static bool hello(typename cxxhttp::net::http::server<transport>::session &sessi
 namespace tcp {
 using asio::ip::tcp;
 static httpd::servlet<tcp> hello("/", ::hello<tcp>);
-static httpd::servlet<tcp> quit("/quit", httpd::quit<tcp>);
 }
 
 namespace unix {
 using asio::local::stream_protocol;
 static httpd::servlet<stream_protocol> hello("/", ::hello<stream_protocol>);
-static httpd::servlet<stream_protocol> quit("/quit",
-                                            httpd::quit<stream_protocol>);
 }
 
 /**\brief Main function for the HTTP/IRC demo
